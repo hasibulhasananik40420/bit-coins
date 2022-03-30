@@ -12,7 +12,7 @@ function App() {
   return (
     <div>
 
-                  {/* 1.30 mimins */}
+                  {/* 1.47 mimins */}
 
 
       <Header></Header>
