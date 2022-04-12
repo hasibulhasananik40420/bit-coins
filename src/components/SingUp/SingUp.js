@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase.init';
 import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
 
 const SingUp = () => {
-      
+      const naviagte = useNavigate()
       const [email, setEmail] = useState('')
       const [password , setPassword] = useState('')
       const [confirmPassword , setConfirmPassword] = useState('')
@@ -13,7 +13,11 @@ const SingUp = () => {
 
       const [ createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth)
 
-        
+       useEffect(()=>{
+        if(user){
+            naviagte ('/')
+          }
+       } ,[user])
 
        const handleEmailBlur = event=>{
            setEmail(event.target.value)
@@ -58,6 +62,7 @@ const SingUp = () => {
               <input onBlur={handleConfirmPasswordBlur} className='w-1/4 pt-3' type="password" name="confirm-password" id="" />
           </div>
             <p style={{color:'red'}}>{error}</p>
+            {/* {loading && <p>Loading...</p>} */}
              <button className='w-1/4 p-2 bg-red-900 mt-5 mb-4 text-white text-xl' type="submit">Sing Up</button>
              <p className=''>
                  Create an account ? <Link className='text-white ml-4 ' to='/login'>Login</Link>

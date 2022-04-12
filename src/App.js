@@ -12,6 +12,7 @@ import UsAddress from './components/Contact/UsAddress';
 import NotFound from './components/NotFound/NotFound';
 import Login from './components/Login/Login';
 import SingUp from './components/SingUp/SingUp';
+import RequireAuth from './components/RequireAuth/RequireAuth';
 function App() {
   return (
     <div>
@@ -20,7 +21,11 @@ function App() {
       <div className='bg-gray-100'>
       <Routes>
        <Route path='/' element= {<Homepage></Homepage>}> </Route>
-       <Route path='/coins' element={<Coins></Coins>}></Route>
+       
+       <Route path='/coins' element={<RequireAuth>
+        <Coins></Coins> 
+       </RequireAuth>}></Route>
+
        <Route path='/coin-details/:id' element={<CoinDetails></CoinDetails>}></Route>
        <Route path='/contact' element={<Contact></Contact>}> 
         <Route path='bd-address' element={<BdAddress></BdAddress>}></Route>
