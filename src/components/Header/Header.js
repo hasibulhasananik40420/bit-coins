@@ -14,6 +14,7 @@ const Header = () => {
               <CustomLink to='/coins'>Coins</CustomLink>
               <CustomLink to='/contact'>Contact</CustomLink>
               <CustomLink to='/about'>about</CustomLink>
+              <CustomLink to='/login'>Login</CustomLink>
             </div>
         </div>
     );

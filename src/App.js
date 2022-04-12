@@ -10,12 +10,11 @@ import Homepage from './components/Homepage/Homepage';
 import BdAddress from './components/Contact/BdAddress';
 import UsAddress from './components/Contact/UsAddress';
 import NotFound from './components/NotFound/NotFound';
+import Login from './components/Login/Login';
+import SingUp from './components/SingUp/SingUp';
 function App() {
   return (
     <div>
-
-               {/* 2..10 hours */}
-
 
       <Header></Header>
       <div className='bg-gray-100'>
@@ -28,6 +27,8 @@ function App() {
         <Route path='us-address' element={<UsAddress></UsAddress>}></Route>
        </Route>
        <Route path='/about' element={<About></About>}> </Route>
+       <Route path='/login' element={<Login></Login>}> </Route>
+       <Route path='/singup' element={<SingUp></SingUp>}> </Route>
        <Route path='*' element={<NotFound></NotFound>}></Route>
       
      </Routes>
