@@ -43,19 +43,19 @@ const Login = () => {
            
             <div>
                 <label className='block mb-3' htmlFor="email">Email</label>
-                <input onBlur={handleEmailBlur} className='w-1/4 pt-3' type="email" name="email" id="" />
+                <input onBlur={handleEmailBlur} className='w-2/4 md:w-1/4 pt-3' type="email" name="email" id="" />
             </div>
             <div>
                 <label className='block  mb-3 mt-3' htmlFor="password">Password</label>
-                <input onBlur={handlePasswordBlur} className='w-1/4 pt-3' type="password" name="password" id="" />
+                <input onBlur={handlePasswordBlur} className='w-2/4 md:w-1/4 pt-3' type="password" name="password" id="" />
             </div>
                <p style={{color:'red'}}>{error?.message}</p>
                {loading && <p>Loading...</p>}
-               <button className='w-1/4 p-2 bg-red-900 mt-5 mb-4 text-white text-xl' type="submit">Login</button>
+               <button className='w-2/4 md:w-1/4 p-2 bg-red-900 mt-5 mb-4 text-white text-xl' type="submit">Login</button>
                <p>
                    Create an account ? <Link className='text-white ml-4 ' to='/singup'>Sing Up</Link>
                </p>
-               <button onClick={()=>handleWithGoogle()} className='w-1/4 p-2 bg-red-900 mt-5 mb-4 text-white text-xl' > <span className='flex justify-center gap-2'> <img className='w-[30px]' src="https://img.icons8.com/fluency/2x/google-logo.png" alt="" /> Continue with Google </span></button>
+               <button onClick={()=>handleWithGoogle()} className=' md:w-1/4 p-2 bg-red-900 mt-5 mb-4 text-white text-xl' > <span className='flex justify-center gap-2'> <img className='w-[30px]' src="https://img.icons8.com/fluency/2x/google-logo.png" alt="" /> Continue with Google </span></button>
            </form>
 
         </div>
