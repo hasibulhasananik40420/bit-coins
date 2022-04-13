@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase.init';
-import { useAuthState, useCreateUserWithEmailAndPassword } from 'react-firebase-hooks/auth';
+import { useAuthState, useCreateUserWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 
 const SingUp = () => {
       const naviagte = useNavigate()
@@ -9,7 +9,7 @@ const SingUp = () => {
       const [password , setPassword] = useState('')
       const [confirmPassword , setConfirmPassword] = useState('')
       const [error , setError] = useState('')
-      const [user] = useAuthState(auth)
+      const [user,loading] = useAuthState(auth)
 
       const [ createUserWithEmailAndPassword] = useCreateUserWithEmailAndPassword(auth)
 
@@ -18,6 +18,12 @@ const SingUp = () => {
             naviagte ('/')
           }
        } ,[user])
+
+        
+         const [signInWithGoogle] = useSignInWithGoogle(auth);
+       const handleWithGoogle =()=>{
+        signInWithGoogle()
+       }
 
        const handleEmailBlur = event=>{
            setEmail(event.target.value)
@@ -62,12 +68,13 @@ const SingUp = () => {
               <input onBlur={handleConfirmPasswordBlur} className='w-1/4 pt-3' type="password" name="confirm-password" id="" />
           </div>
             <p style={{color:'red'}}>{error}</p>
-            {/* {loading && <p>Loading...</p>} */}
+            {loading && <p>Loading...</p>}
              <button className='w-1/4 p-2 bg-red-900 mt-5 mb-4 text-white text-xl' type="submit">Sing Up</button>
              <p className=''>
                  Create an account ? <Link className='text-white ml-4 ' to='/login'>Login</Link>
              </p>
-             
+             <button onClick={()=>handleWithGoogle()} className='w-1/4 p-2 bg-red-900 mt-5 mb-4 text-white text-xl' > <span className='flex justify-center gap-2'> <img className='w-[30px]' src="https://img.icons8.com/fluency/2x/google-logo.png" alt="" /> Continue with Google </span></button>
+
          </form>
        </div>
 
