@@ -20,9 +20,10 @@ const SingUp = () => {
        } ,[user])
 
         
-         const [signInWithGoogle] = useSignInWithGoogle(auth);
+     const [signInWithGoogle] = useSignInWithGoogle(auth);
        const handleWithGoogle =()=>{
         signInWithGoogle()
+        //  naviagte ('/home')
        }
 
        const handleEmailBlur = event=>{
@@ -71,7 +72,7 @@ const SingUp = () => {
             {loading && <p>Loading...</p>}
              <button className='w-2/4 rounded-sm md:w-1/4 p-2 bg-red-900 mt-5 mb-4 text-white text-xl' type="submit">Sing Up</button>
              <p className=''>
-                 Create an account ? <Link className='text-white ml-4 ' to='/login'>Login</Link>
+                 Already have an account ? <Link className='text-white ml-4 ' to='/login'>Login</Link>
              </p>
              <button onClick={()=>handleWithGoogle()} className='md:w-1/4 p-2 bg-red-900 mt-5 mb-4 text-white text-xl' > <span className='flex justify-center gap-2'> <img className='w-[30px]' src="https://img.icons8.com/fluency/2x/google-logo.png" alt="" /> Continue with Google </span></button>
 

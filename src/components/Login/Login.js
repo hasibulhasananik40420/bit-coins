@@ -4,22 +4,26 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import auth from '../../Firebase.init';
 
 const Login = () => {
+    const [user, loading, error] = useAuthState(auth)
      const navigate = useNavigate()
-    const [ signInWithEmailAndPassword,user , loading, error ] = useSignInWithEmailAndPassword(auth);
-
-
+    const [ signInWithEmailAndPassword ] = useSignInWithEmailAndPassword(auth);
 
      const [email, setEmail] = useState('')
      const [password, setPassword] = useState('')
+
      const location = useLocation()
      const from = location.state?.from?.pathname || '/'
-      if(user){
-        navigate(from , {replace: true})
-      }
+      
+     if(user){
+      navigate(from , {replace: true})
+    }
 
+    //    google
       const [signInWithGoogle] = useSignInWithGoogle(auth);
+
        const handleWithGoogle =()=>{
         signInWithGoogle()
+      
        }
 
      const handleEmailBlur = event=>{
